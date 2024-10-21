@@ -1,9 +1,9 @@
 enum VehicleCategory { Public, Private }
 
 abstract class Vehicle {
-  String _name;  
-  double _speed; 
-  VehicleCategory _category; 
+  String _name;
+  double _speed;
+  VehicleCategory _category;
 
   Vehicle(this._name, this._speed, this._category);
 
@@ -25,9 +25,16 @@ class Car extends Vehicle {
   int numberOfSeats;
 
   /**TODO: Implement constructor of car**/
+  Car(String name, double speed, VehicleCategory category, this.numberOfSeats)
+      : super(name, speed, category);
   @override
   String getDetails() {
     /**TODO: Implement this function**/
+    return """
+Name: $name
+Category: ${category.toString().split('.').last}
+Speed: $speed
+Number of seats: $numberOfSeats""";
   }
 }
 
@@ -35,10 +42,16 @@ class Bus extends Vehicle {
   int capacity;
 
   /**TODO: Implement constructor of bus**/
-
+  Bus(String name, double speed, VehicleCategory category, this.capacity)
+      : super(name, speed, category);
   @override
   String getDetails() {
     /**TODO: Implement this function**/
+    return """
+Name: $name
+Category: ${category.toString().split('.').last}
+Speed: $speed
+Capacity: $capacity""";
   }
 }
 
